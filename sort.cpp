@@ -5,7 +5,34 @@ using namespace std;
 
 void Sort::quick_sort(int a[], int length)
 {
-	
+	quick_sort_e(a, 0, length-1);
+}
+void Sort::quick_sort_e(int a[], int l, int r)
+{
+	if(l >= r) return;
+
+	int p = quick_sort_partition(a, l, r);
+	quick_sort_e(a, l, p-1);
+	quick_sort_e(a, p+1, r);
+}
+int Sort::quick_sort_partition(int a[], int l, int r)
+{
+	int temp;
+	int i = l-1;
+	for(int j = l; j < r; j++)
+	{
+		if(a[j] < a[r])
+		{
+			temp = a[j];
+			a[j] = a[i+1];
+			a[i+1] = temp;
+			i++;
+		}
+	}
+	temp = a[r];
+	a[r] = a[i+1];
+	a[i+1] = temp;
+	return i+1;
 }
 void Sort::heap_sort(int a[], int length)
 {

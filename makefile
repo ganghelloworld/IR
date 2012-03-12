@@ -2,7 +2,7 @@
 CPP = g++
 OFLAG = -o
 CFLAG = -c
-OBJ = test.o sort.o
+OBJ = test.o sort.o priority_queue.o
 
 .SUFFIXES: .cpp .o
 .cpp.o:
