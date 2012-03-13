@@ -1,8 +1,48 @@
 #include "sort.h"
+#include "utility.h"
 #include <iostream>
+#include <cstdio>
 
 using namespace std;
+bool debug = false;
+void Sort::count_sort(int a[], int length)
+{
+	int max = a[0];
+	for(int i = 1; i < length; i++)
+	{
+		if(max < a[i])
+		{
+			max = a[i];
+		}
+	}
+	max ++;
+	if(debug) cout << "max " << max << endl;
+	int * b = new int[max];
+	for(int i = 0; i < max; i++) b[i] = 0;
+	
+	if(debug) cout << "b is : " << endl;
+	for(int i = 0; i < length; i++) b[a[i]] ++;
+	if(debug) display_array(b, max);
 
+	if(debug) cout << "add b is : " << endl;
+	for(int i = 1; i < max; i++) b[i] += b[i-1];
+	if(debug) display_array(b, max);
+	
+	int * c = new int[length];
+	if(debug) cout << "c is : " << endl;
+	for(int i = length - 1; i >= 0; i--)
+	{
+		c[b[a[i]]-1] = a[i];
+		b[a[i]]--;
+	}
+	if(debug) display_array(c, length);
+	for(int i = 0; i < length; i++)
+	{
+		a[i] = c[i];
+	}
+	delete []b;
+	delete []c;
+}
 void Sort::quick_sort(int a[], int length)
 {
 	quick_sort_e(a, 0, length-1);

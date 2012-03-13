@@ -5,6 +5,7 @@ struct Sort
 {
 	void heap_sort(int [], int);
 	void quick_sort(int [], int);
+	void count_sort(int [], int);
 
 	void max_heapify(int [], int, int);
 	void build_max_heap(int [], int);
