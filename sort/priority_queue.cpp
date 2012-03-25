@@ -1,10 +1,10 @@
 #include "priority_queue.h"
+#include "../utility.h"
+#include "../constant.h"
 #include <iostream>
 #include <cassert>
 
 using namespace std;
-
-int size = 0;
 
 void Priority_queue::insert(int x)
 {
@@ -38,8 +38,8 @@ int Priority_queue::extract_max()
 void Priority_queue::max_heapify(int i)
 {
 	if(i >= size - 1) return;
-	int l = left__(i);
-	int r = right__(i);
+	int l = left_child(i);
+	int r = right_child(i);
 	int large = i;
 	if(l < size && p[l] > p[large]) large = l;
 

@@ -1,10 +1,28 @@
 #include "sort.h"
-#include "utility.h"
 #include <iostream>
 #include <cstdio>
 
 using namespace std;
-bool debug = false;
+
+
+void Sort::radix_sort(int a[], int length)
+{
+	int max = a[0];
+	for(int i = 1; i < length; i++)
+		if(max < a[i]) max = a[i];
+	int d = 0;
+	while(max % 10 > 0)
+	{
+		d++;
+		max = (max / 10);
+	}
+	int *b = new int[10];
+	int *c = new int[length];
+	for(int i = 0; i < d; i++)
+	{
+		
+	}
+}
 void Sort::count_sort(int a[], int length)
 {
 	int max = a[0];
