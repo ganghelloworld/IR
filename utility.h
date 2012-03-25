@@ -11,7 +11,17 @@ inline void display_array(int a[], int length)
 	}
 	std::cout << std::endl;
 }
-
+inline void display_matrix(int **a, int row, int column)
+{
+	for(int i = 0; i < row; i++)
+	{
+		for(int j = 0; j < column; j++)
+		{
+			std::cout << a[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+}
 inline int get_num_by_index(int num, int index)
 {
 	int res = num % 10;

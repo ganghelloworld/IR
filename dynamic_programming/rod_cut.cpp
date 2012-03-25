@@ -13,13 +13,16 @@ RodCut::RodCut(int *q, int size) :
 	r = new int[len];
 	s = new int[len];
 
-	memset(p, 0, len);
-	memset(r, 0, len);
-	memset(r, 0, len);
+	memset(p, 0, sizeof(int) * len);
+	memset(r, 0, sizeof(int) * len);
+	memset(r, 0, sizeof(int) * len);
+	/*
 	for(int i = 1; i < len; i++)
 	{
 		p[i] = q[i-1];
 	}
+	*/
+	memcpy(p+1, q, sizeof(int) * (len-1));
 }
 
 void RodCut::cut(int n) const
