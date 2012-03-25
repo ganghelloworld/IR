@@ -13,5 +13,5 @@ int main()
 	rc.calculate();
 	
 	cout << "max price = " << rc.get_max_price(NUM) << endl;
-	rc.cut(NUM);
+	rc.cut(7);
 }

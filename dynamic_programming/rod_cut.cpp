@@ -35,24 +35,48 @@ void RodCut::cut(int n) const
 
 void RodCut::calculate()
 {
-	bottom_up();
+	up_bottom();
 	display_array(p+1, len-1);
 	display_array(r+1, len-1);
 	display_array(s+1, len-1);
 }
-
+void RodCut::up_bottom()
+{
+	r[0] = 0;
+	for(int i = 1; i < len; i++)
+	{
+		r[i] = MIN_INT;
+	}
+	up_bottom_lookup(len-1);
+}
+int RodCut::up_bottom_lookup(int n)
+{
+	if(r[n] > MIN_INT) return r[n];
+	int q = MIN_INT;
+	int temp;
+	for(int i = 1; i <= n; i++)
+	{
+		temp = p[i] + up_bottom_lookup(n-i);
+		if(q < temp)
+		{
+			q = temp;
+			s[n] = i;
+		}
+	}
+	r[n] = q;
+	return r[n];
+}
 void RodCut::bottom_up()
 {
 	int q;
 	for(int i = 1; i < len; i++)
 	{
-		q = p[i];
-		s[i] = i;
-		for(int j = 1; j < i; j++)
+		q = MIN_INT;
+		for(int j = 1; j <= i; j++)
 		{
-			if(q < (r[j] + r[i - j]))
+			if(q < (p[j] + r[i - j]))
 			{
-				q = r[j] + r[i - j];
+				q = p[j] + r[i - j];
 				s[i] = j;
 			}
 		}

@@ -9,6 +9,8 @@ class RodCut
 	int *s;
 
 	void bottom_up();
+	int up_bottom_lookup(int);
+	void up_bottom();
 public:
 	RodCut(int *q, int size);
 	void cut(int n) const;
