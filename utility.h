@@ -3,7 +3,8 @@
 
 #include <iostream>
 
-inline void display_array(int a[], int length)
+template <class T>
+inline void display_array(T a[], int length)
 {
 	for(int i = 0; i < length; i++)
 	{
@@ -11,7 +12,8 @@ inline void display_array(int a[], int length)
 	}
 	std::cout << std::endl;
 }
-inline void display_matrix(int **a, int row, int column)
+template <class T>
+inline void display_matrix(T **a, int row, int column)
 {
 	for(int i = 0; i < row; i++)
 	{
