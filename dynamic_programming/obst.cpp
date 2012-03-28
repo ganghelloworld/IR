@@ -35,14 +35,6 @@ void Obst::print_tree()
 }
 void Obst::construct_tree(int i, int j)
 {
-	/*
-	if(i == j + 1)
-	{
-		cout << "d" << j << " is left child of k" << i << endl;
-		cout << "d" << i << " is right child of k" << i << endl;
-		return;
-	}
-	*/
 	if(i == j) 
 	{
 		cout << "d" << i-1 << " is left child of k" << i << endl;
@@ -62,7 +54,6 @@ void Obst::construct_tree(int i, int j)
 		return;
 	}
 	cout << "k" << root[root[i][j]+1][j] << " is right child of k" << root[i][j] << endl;;
-	//sleep(1);
 	construct_tree(root[i][j]+1, j);
 }
 void Obst::calculate()
