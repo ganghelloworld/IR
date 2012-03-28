@@ -14,7 +14,7 @@ class Obst
 public:
 	Obst(float*, float*, int);
 	void calculate();
-	float get_min_cost(){ return e[1][num];}
+	float get_min_cost(){ return e[1][num-2];}
 	void print_tree();
 	~Obst();
 };

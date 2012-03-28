@@ -16,5 +16,5 @@ int main()
 
 	cout << "min cost = " << o.get_min_cost() << endl;
 
-	//o.print_tree();
+	o.print_tree();
 }
