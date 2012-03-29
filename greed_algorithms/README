@@ -1,0 +1,13 @@
+activity_selection*
+	run it: make
+			./activity_selection_test
+这应该算是最简单的贪心算法了，不过贪心相对动态规划都要容易一些
+有些C++语法的问题需要注意
+1. 直接这样赋值Activity a[] = {{1, 4}}; 会引起警告
+	extended initializer lists only available with -std=c++0x or -std=gnu++0x
+2. 申明一个类是另一个类的friend，没必要用书上讲的下面这三步，其中第一步去掉是没问题的
+	class A;
+	class B{ friend class A};
+	class B{};
+
+===================================================
