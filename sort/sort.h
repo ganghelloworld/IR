@@ -1,11 +1,12 @@
 #ifndef SORT_H
 #define SORT_H
 
-#include "../utility.h"
-#include "../constant.h"
+#include "../include/utility.h"
+#include "../include/constant.h"
 
 class Sort
 {
+	int a;
 public:
 	static void heap_sort(int [], int);
 	static void quick_sort(int [], int);

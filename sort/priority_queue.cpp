@@ -1,6 +1,6 @@
 #include "priority_queue.h"
-#include "../utility.h"
-#include "../constant.h"
+#include "../include/utility.h"
+#include "../include/constant.h"
 #include <iostream>
 #include <cassert>
 
