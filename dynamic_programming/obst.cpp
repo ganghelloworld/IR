@@ -1,6 +1,6 @@
 #include "obst.h"
-#include "../constant.h"
-#include "../utility.h"
+#include "../include/constant.h"
+#include "../include/utility.h"
 #include <iostream>
 #include <cstring>
 

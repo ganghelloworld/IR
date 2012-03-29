@@ -1,5 +1,5 @@
 #include "matrix_chain_multi.h"
-#include "../constant.h"
+#include "../include/constant.h"
 #include <iostream>
 
 using namespace std;

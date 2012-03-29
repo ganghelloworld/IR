@@ -1,6 +1,6 @@
 #include "matrix_chain_multi.h"
-#include "../utility.h"
-#include "../constant.h"
+#include "../include/utility.h"
+#include "../include/constant.h"
 #include <cstring>
 #include <iostream>
 
