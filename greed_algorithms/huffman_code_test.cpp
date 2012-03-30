@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-static const in NUM = 6;
+static const int NUM = 6;
 int main()
 {
 	CharUnit cu[NUM] = {{'a', 45}, {'b', 13}, {'c', 12}, 
