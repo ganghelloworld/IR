@@ -1,5 +1,5 @@
-#ifndef myBST_H
-#define myBST_H
+#ifndef BST_H
+#define BST_H
 #include <iostream>
 template <class T>
 class Node
@@ -15,13 +15,13 @@ public:
 };
 
 template <class T>
-class myBST
+class BST
 {
 private:
 	Node<T>* root;
 public:
-	myBST(){ std::cout << "b";};
-	myBST(T* a, int length): root(0)
+	BST(){ std::cout << "b";};
+	BST(T* a, int length): root(0)
 	{
 		std::cout << length << std::endl;
 		for(int i = 0; i < length; i++)
@@ -68,5 +68,4 @@ private:
 		else temp->right = target;
 	}
 };
-
-#endif //myBST_H
+#endif //BST_H

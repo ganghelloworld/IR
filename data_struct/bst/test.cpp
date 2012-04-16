@@ -1,4 +1,4 @@
-#include "bst.h"
+#include "bst_int.h"
 #include <iostream>
 
 using namespace std;
@@ -8,7 +8,7 @@ int main()
 {
 	int a[] = {15, 6, 18, 3, 7, 17, 20, 2, 4, 13, 9};
 	cout << "a" << endl;
-	myBST<int> b(a, NUM);
+	BSTInt b(a, NUM);
 	b.in_order();
 	cout << endl;
 }
