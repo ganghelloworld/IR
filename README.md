@@ -20,3 +20,7 @@ greed_algorithms
 data_struct
 ------------------
 implement some data_struct, such as binary search tree and red and black tree
+
+tree_search
+--------------------
+利用树的搜索策略解决的问题
