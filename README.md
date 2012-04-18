@@ -20,3 +20,7 @@ greed_algorithms
 data_struct
 ------------------
 implement some data_struct, such as binary search tree and red and black tree
+
+basic
+----------------
+一些小算法的实现
