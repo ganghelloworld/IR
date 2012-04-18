@@ -56,6 +56,7 @@ public:
 	Node<T>* predecessor(Node<T>* node) const;
 	Node<T>* insert(T z);
 	void del_node(Node<T>* node);
+	void delete_node(Node<T>* node);
 private:
 	Node<T>* tree_search(int, Node<T>*) const;
 	Node<T>* iterative_tree_search(int) const;
@@ -69,59 +70,56 @@ private:
 template <class T>
 void BST<T>::transplant(Node<T>* u, Node<T>* v)
 {
-	Node<T>* temp = new Node<T>;
-	temp->parent = u->parent;
-	temp->left = u->left;
-	temp->right = u->right;
+	if(u->parent == 0)
+		root = v;
+	else if(u->parent->left == u)
+		u->parent->left = v;
+	else
+		u->parent->right = v;
+	if(v != 0)
+	{
+		v->parent = u->parent;
+	}
 
-	exchange(u, v);
-	exchange(v, temp);
-
-	delete temp;
+}
+template <class T>
+void BST<T>::delete_node(Node<T>* node)
+{
+	if(node->left == 0)
+	{
+		transplant(node, node->left);
+	}
+	else if(node->right == 0)
+	{
+		transplant(node, node->right);
+	}
+	else
+	{
+		Node<T>* temp = successor(node);
+		if(node->right != temp)
+		{
+			transplant(temp, temp->right);
+			temp->right = node->right;
+			temp->right->parent = temp;
+		}
+		transplant(node, temp);
+		temp->left = node->left;
+		temp->left->parent = temp;
+	}
+	delete node;
 }
 template <class T>
 void BST<T>::del_node(Node<T>* node)
 {
 	if(node == 0) return;
 
-	if(node->left == 0 && node->right == 0)
+	if(node->left == 0)
 	{
-		if(node->parent != 0)
-		{
-			if(node == node->parent->left)
-			{
-				std::cout << "0 0 left" << std::endl;
-				node->parent->left = 0;
-			}
-			else
-			{
-				std::cout << "0 0 right" << std::endl;
-				node->parent->right = 0;
-			}
-		}
-		else
-		{
-			std::cout << "0 0 0" << std::endl;
-			root = 0;
-		}
-	}
-	else if(node->left == 0 && node->right != 0)
-	{
-		if(node->parent != 0)
-			if(node->parent->left == node->right)
-				node->parent->left = node->right;
-			else node->parent->right = node->right;
-		else root = node;
-		node->right->parent = node->parent;
+		transplant(node, node->right);
 	}
 	else if(node->left != 0 && node->right == 0)
 	{
-		if(node->parent != 0)
-			if(node->parent->left == node->left)
-				node->parent->left = node->left;
-			else node->parent->right = node->left;
-		else root = node;
-		node->left->parent = node->parent;
+		transplant(node, node->left);
 	}
 	else if(node->left != 0 & node->right != 0)
 	{

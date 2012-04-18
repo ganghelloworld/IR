@@ -12,7 +12,7 @@ void print_node(Node<T>* node, string msg)
 }
 int main()
 {
-	int a[] = {15, 6, 18, 3, 8, 17, 20, 2, 4, 7, 13, 9};
+	int a[] = {15, 6, 18, 3, 8, 17, 20, 4, 13, 9};
 	BST<int> b(a, (sizeof a) / (sizeof a[0]));
 	b.in_order();
 	cout << endl;
@@ -23,11 +23,11 @@ int main()
 	cout << endl;
 	*/
 
-	int key = 15;
+	int key = 6;
 	Node<int>* node = b.tree_search(key);
 	print_node(node, "key is not in bst");
 
-	b.del_node(node);
+	b.delete_node(node);
 	b.in_order();
 	cout << endl;
 
