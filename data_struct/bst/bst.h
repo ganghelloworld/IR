@@ -2,6 +2,7 @@
 #define BST_H
 #include <iostream>
 #include <stack>
+#include <queue>
 
 template <class T>
 class Node
@@ -46,6 +47,7 @@ private:
 public:
 	BST(){};
 	BST(T* a, int length);
+	~BST();
 	Node<T>* tree_search(int) const;
 	void in_order() const;
 	void pre_order() const;
@@ -57,6 +59,8 @@ public:
 	Node<T>* insert(T z);
 	void del_node(Node<T>* node);
 	void delete_node(Node<T>* node);
+	Node<T>* dfs(int) const;
+	Node<T>* bfs(int) const;
 private:
 	Node<T>* tree_search(int, Node<T>*) const;
 	Node<T>* iterative_tree_search(int) const;
@@ -66,7 +70,63 @@ private:
 	Node<T>* minimum(Node<T>*) const;
 	Node<T>* maximum(Node<T>*) const;
 	void transplant(Node<T>* u, Node<T>* v);
+	void delete_all(Node<T>*);
 };
+template <class T>
+BST<T>::~BST()
+{
+	delete_all(root);
+}
+template <class T>
+void BST<T>::delete_all(Node<T>* node)
+{
+	if(node->left != 0)
+		delete_all(node->left);
+	if(node->right != 0)
+		delete_all(node->right);
+	delete node;
+}
+
+template <class T>
+Node<T>* BST<T>::dfs(int key) const
+{
+		std::stack<Node<T>*> s;
+	s.push(root);
+	Node<T>* temp;
+	while(!s.empty())
+	{
+		temp = s.top();
+		s.pop();
+		std::cout << temp->data << " ";
+		if(key == temp->data)
+		{
+			return temp;
+		}
+		if(temp->right != 0) s.push(temp->right);
+		if(temp->left != 0) s.push(temp->left);
+	}
+	return 0;
+}
+template <class T>
+Node<T>* BST<T>::bfs(int key) const
+{
+	std::queue<Node<T>*> q;
+	Node<T>* temp;
+	q.push(root);
+	while(!q.empty())
+	{
+		temp = q.front();
+		q.pop();
+		std::cout << temp->data << " ";
+		if(temp->data == key)
+		{
+			return temp;
+		}
+		if(temp->left != 0) q.push(temp->left);
+		if(temp->right != 0) q.push(temp->right);
+	}
+	return 0;
+}
 template <class T>
 void BST<T>::transplant(Node<T>* u, Node<T>* v)
 {
