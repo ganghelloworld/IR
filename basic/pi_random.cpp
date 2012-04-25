@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cmath>
 #include <cstdlib>
-
+using namespace std;
 
 static const long PRECISION = 1000000000;
 
@@ -17,6 +17,14 @@ int main()
 
 	long k = 0, n = 0;
 	srand(time(NULL));
+	/*
+	for(int i = 0; i < 100; i++)
+	{
+		std::cout << get_random() << std::endl;
+	}
+	return 0;
+	*/
+	cout.precision(9);
 	while(1)
 	{
 		x = get_random();
