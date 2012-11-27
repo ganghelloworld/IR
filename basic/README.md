@@ -5,3 +5,7 @@ int_reverse.cpp
 pi_random.cpp
 -----------------------------------
 calculate PI by random algorithm
+
+convert_to_binary.c
+----------------------------------
+将一个10进制的数转化成它的二进制表示
